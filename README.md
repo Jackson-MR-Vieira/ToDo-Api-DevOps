@@ -29,7 +29,7 @@ Este projeto foi desenvolvido como parte de uma atividade de DevOps, utilizando 
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/simple-todo-api-fastapi.git
+git clone https://github.com/Jackson-MR-Vieira/simple-todo-api-fastapi.git
 cd simple-todo-api-fastapi
 ```
 
