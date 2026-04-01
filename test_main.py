@@ -8,5 +8,5 @@ def test_home():
     assert response.status_code == 200
 
 def test_create_task():
-    response = client.post("/tasks", json={"title": "Estudar DevOps"})
+    response = client.post("/tasks", json={"title": "Estudar Python em DevOps"})
     assert response.status_code == 200
