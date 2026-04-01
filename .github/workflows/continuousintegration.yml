@@ -1,0 +1,39 @@
+name: CI - ToDo API
+
+on:
+  push:
+    branches: [ "main", "second" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clona o repositório
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # 2. Configura o Python
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3. Instala dependências
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pylint pytest
+
+      # 4. Rodar Linter (pylint)
+      - name: Rodar pylint
+        run: |
+          pylint main.py || true
+
+      # 5. Rodar testes
+      - name: Rodar testes
+        run: |
+          pytest
