@@ -5,20 +5,22 @@ on:
     branches: [ "main" ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Simular deploy
-        run: echo "Deploy realizado com sucesso!"
-
-      - name: Build do projeto
+      - name: Build da aplicação
         run: |
           echo "Buildando aplicação..."
 
-      - name: Deploy
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Simular deploy
         run: |
-          echo "Aplicação publicada com sucesso!"
+          echo "Deploy realizado com sucesso!"
