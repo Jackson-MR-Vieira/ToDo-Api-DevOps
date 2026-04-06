@@ -2,7 +2,7 @@ name: CI - ToDo API
 
 on:
   push:
-    branches: [ "main", "second" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -37,3 +37,17 @@ jobs:
       - name: Rodar testes
         run: |
           pytest
+
+  docker:
+    runs-on: ubuntu-latest
+      # Setup do Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      # Build da imagem Docker
+      - name: Build Docker image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: false
+          tags: todo-api:latest
