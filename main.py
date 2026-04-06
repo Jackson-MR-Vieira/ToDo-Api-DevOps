@@ -6,7 +6,7 @@ tasks = []
 
 @app.get("/")
 def home():
-    return {"message": "API ToDo funcionando"}
+    return {"message": "API ToDo funcionando!"}
 
 @app.post("/tasks")
 def create_task(task: dict):
