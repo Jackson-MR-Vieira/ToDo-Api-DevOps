@@ -2,7 +2,7 @@ name: CI - ToDo API
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "second", "criacao-docker" ]
   pull_request:
     branches: [ "main" ]
 
@@ -40,6 +40,11 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
+    steps:
+      # Checkout do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
       # Setup do Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
