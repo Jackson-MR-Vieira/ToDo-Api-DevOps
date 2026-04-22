@@ -1,6 +1,11 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
+
+# Modelo da tarefa
+class Task(BaseModel):
+    title: str
 
 tasks = []
 
@@ -9,7 +14,7 @@ def home():
     return {"message": "API ToDo funcionando!"}
 
 @app.post("/tasks")
-def create_task(task: dict):
+def create_task(task: Task):
     tasks.append(task)
     return task
 
