@@ -1,8 +1,8 @@
 name: CI - ToDo API
 
 on:
-  ##push:
-    ##branches: [ "main", "second", "criacao-docker" ]
+  push:
+    branches: [ "main", "second", "criacao-docker" ]
   pull_request:
     branches:
     - main
