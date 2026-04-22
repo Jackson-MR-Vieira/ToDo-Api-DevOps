@@ -7,8 +7,8 @@ client = TestClient(app)
 def test_home():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json()["title"] == "Estudar Python em DevOps!"
-
+    assert response.json()["message"] == "API ToDo funcionando!"
+    
 def test_create_task():
     response = client.post("/tasks", json={"title": "Estudar Python em DevOps!"})
     assert response.status_code == 200
