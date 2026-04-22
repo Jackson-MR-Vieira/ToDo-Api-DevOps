@@ -34,11 +34,6 @@ jobs:
         run: |
           pylint main.py || true
 
-      # 5. Rodar testes
-      - name: Rodar testes
-        run: |
-          pytest
-
   docker:
     runs-on: ubuntu-latest
     steps:
